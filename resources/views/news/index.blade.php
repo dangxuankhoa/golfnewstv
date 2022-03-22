@@ -1,0 +1,300 @@
+@extends('layout.index')
+@section('title', 'GolfNewsTV - Tin tức')
+@section('content')
+
+    <div class="heading-page header-text">
+        <section class="page-heading news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-content">
+                            <h4>News</h4>
+                            <h2>Tin tức mới</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="blog-posts grid-system">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="all-blog-posts">
+                        <div class="row">
+                            @foreach ($newsData->data as $data)
+                                <div class="col-lg-6">
+                                    <div class="blog-post">
+                                        <div class="blog-thumb" style="position: relative">
+                                            <a target="_blank" rel="noopener noreferrer" href="{{ $data->url }}"><img src="{{ $data->img_display }}"
+                                                    alt="{{ $data->title }}"></a>
+                                        </div>
+                                        <div class="down-content"
+                                            style="position: absolute; background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.02) 20%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.9) 100%);">
+                                            <span class="badge badge-warning"
+                                                style="color: #fff; font-weight: normal; font-size: 15px; margin-left: 8px; margin-bottom: 5px;"><?= mb_strimwidth($data->created_at, 0, 10, '') ?></span>
+                                            <a target="_blank" rel="noopener noreferrer" href="{{ $data->url }}">
+                                                <h4><?= mb_strimwidth($data->title, 0, 70, ' ...') ?></h4>
+                                            </a>
+                                            {{-- <ul class="post-info">
+                                                <li>Admin</li>
+                                                <li><?= mb_strimwidth($data->created_at, 0, 10, '') ?></li>
+                                            </ul> --}}
+                                            {{-- <div class="post-options">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <ul class="post-tags">
+                                                            <li><i class="fa fa-tags"></i></li>
+                                                            <li><a href="#">GolfNews</a>,</li>
+                                                            <li><a href="#">GolfNewsTV</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                            {{-- <div class="col-lg-4">
+                                <div class="blog-post">
+                                    <div class="blog-thumb">
+                                        <img src="assets/images/blog-thumb-02.jpg" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <span>Lifestyle</span>
+                                        <a href="post-details.html">
+                                            <h4>Suspendisse et metus</h4>
+                                        </a>
+                                        <ul class="post-info">
+                                            <li><a href="#">Admin</a></li>
+                                            <li><a href="#">May 22, 2020</a></li>
+                                            <li><a href="#">26 Comments</a></li>
+                                        </ul>
+                                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a
+                                            mauris sit amet eleifend.</p>
+                                        <div class="post-options">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <ul class="post-tags">
+                                                        <li><i class="fa fa-tags"></i></li>
+                                                        <li><a href="#">Best Templates</a>,</li>
+                                                        <li><a href="#">TemplateMo</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="blog-post">
+                                    <div class="blog-thumb">
+                                        <img src="assets/images/blog-thumb-03.jpg" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <span>Lifestyle</span>
+                                        <a href="post-details.html">
+                                            <h4>Donec tincidunt leo</h4>
+                                        </a>
+                                        <ul class="post-info">
+                                            <li><a href="#">Admin</a></li>
+                                            <li><a href="#">May 18, 2020</a></li>
+                                            <li><a href="#">42 Comments</a></li>
+                                        </ul>
+                                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a
+                                            mauris sit amet eleifend.</p>
+                                        <div class="post-options">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <ul class="post-tags">
+                                                        <li><i class="fa fa-tags"></i></li>
+                                                        <li><a href="#">Best Templates</a>,</li>
+                                                        <li><a href="#">TemplateMo</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="blog-post">
+                                    <div class="blog-thumb">
+                                        <img src="assets/images/blog-thumb-04.jpg" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <span>Lifestyle</span>
+                                        <a href="post-details.html">
+                                            <h4>Mauris ac dolor ornare</h4>
+                                        </a>
+                                        <ul class="post-info">
+                                            <li><a href="#">Admin</a></li>
+                                            <li><a href="#">May 16, 2020</a></li>
+                                            <li><a href="#">28 Comments</a></li>
+                                        </ul>
+                                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a
+                                            mauris sit amet eleifend.</p>
+                                        <div class="post-options">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <ul class="post-tags">
+                                                        <li><i class="fa fa-tags"></i></li>
+                                                        <li><a href="#">Best Templates</a>,</li>
+                                                        <li><a href="#">TemplateMo</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="blog-post">
+                                    <div class="blog-thumb">
+                                        <img src="assets/images/blog-thumb-05.jpg" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <span>Lifestyle</span>
+                                        <a href="post-details.html">
+                                            <h4>Donec tincidunt leo</h4>
+                                        </a>
+                                        <ul class="post-info">
+                                            <li><a href="#">Admin</a></li>
+                                            <li><a href="#">May 12, 2020</a></li>
+                                            <li><a href="#">16 Comments</a></li>
+                                        </ul>
+                                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a
+                                            mauris sit amet eleifend.</p>
+                                        <div class="post-options">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <ul class="post-tags">
+                                                        <li><i class="fa fa-tags"></i></li>
+                                                        <li><a href="#">Best Templates</a>,</li>
+                                                        <li><a href="#">TemplateMo</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="blog-post">
+                                    <div class="blog-thumb">
+                                        <img src="assets/images/blog-thumb-06.jpg" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <span>Lifestyle</span>
+                                        <a href="post-details.html">
+                                            <h4>Mauris ac dolor ornare</h4>
+                                        </a>
+                                        <ul class="post-info">
+                                            <li><a href="#">Admin</a></li>
+                                            <li><a href="#">May 10, 2020</a></li>
+                                            <li><a href="#">3 Comments</a></li>
+                                        </ul>
+                                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a
+                                            mauris sit amet eleifend.</p>
+                                        <div class="post-options">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <ul class="post-tags">
+                                                        <li><i class="fa fa-tags"></i></li>
+                                                        <li><a href="#">Best Templates</a>,</li>
+                                                        <li><a href="#">TemplateMo</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            {{-- <div class="col-lg-12">
+                                <ul class="page-numbers">
+                                    <li><a href="#">1</a></li>
+                                    <li class="active"><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                                </ul>
+                            </div> --}}
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="col-lg-4">
+                    <div class="sidebar">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sidebar-item search">
+                                    <form id="search_form" name="gs" method="GET" action="#">
+                                        <input type="text" name="q" class="searchText" placeholder="type to search..."
+                                            autocomplete="on">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="sidebar-item recent-posts">
+                                    <div class="sidebar-heading">
+                                        <h2>Recent Posts</h2>
+                                    </div>
+                                    <div class="content">
+                                        <ul>
+                                            <li><a href="post-details.html">
+                                                    <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
+                                                    <span>May 31, 2020</span>
+                                                </a></li>
+                                            <li><a href="post-details.html">
+                                                    <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
+                                                    <span>May 28, 2020</span>
+                                                </a></li>
+                                            <li><a href="post-details.html">
+                                                    <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
+                                                    <span>May 14, 2020</span>
+                                                </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="sidebar-item categories">
+                                    <div class="sidebar-heading">
+                                        <h2>Categories</h2>
+                                    </div>
+                                    <div class="content">
+                                        <ul>
+                                            <li><a href="#">- Nature Lifestyle</a></li>
+                                            <li><a href="#">- Awesome Layouts</a></li>
+                                            <li><a href="#">- Creative Ideas</a></li>
+                                            <li><a href="#">- Responsive Templates</a></li>
+                                            <li><a href="#">- HTML5 / CSS3 Templates</a></li>
+                                            <li><a href="#">- Creative &amp; Unique</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="sidebar-item tags">
+                                    <div class="sidebar-heading">
+                                        <h2>Tag Clouds</h2>
+                                    </div>
+                                    <div class="content">
+                                        <ul>
+                                            <li><a href="#">Lifestyle</a></li>
+                                            <li><a href="#">Creative</a></li>
+                                            <li><a href="#">HTML5</a></li>
+                                            <li><a href="#">Inspiration</a></li>
+                                            <li><a href="#">Motivation</a></li>
+                                            <li><a href="#">PSD</a></li>
+                                            <li><a href="#">Responsive</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+    </section>
+@endsection
