@@ -40,7 +40,7 @@
                             <?php unset($done[$key]); ?>
                         @else
                             <div class="col-4">
-                                <a href="{{ route('vod.bantin_360.watch', $item->snippet->resourceId->videoId) }}">
+                                <a href="{{ route('vod.gnnv.watch', $item->snippet->resourceId->videoId) }}">
                                     <div class="card mb-4">
                                         @if (isset($item->snippet->thumbnails->medium->url))
                                             <img src="{{ $item->snippet->thumbnails->medium->url }}"
